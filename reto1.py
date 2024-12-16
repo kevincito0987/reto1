@@ -5,26 +5,45 @@
 print("En este programa quiero saber que preferencias tienes para que juntos creemos tu contraseña ideal especificando la longitud de la contraseña y decidir si desea incluir mayúsculas, minúsculas, caracteres alfanuméricos y símbolos.")
 
 #Presentará un menú con opciones numeradas para que el usuario pueda elegir la longitud de la contraseña, incluir mayúsculas, minúsculas, caracteres alfanuméricos y símbolos.
-ancho_clave = int(input("Ingresa cuantos caracteres quieres que tenga tu contraseña."))
-opcion_usuario = int(input("Digita 1 si quieres incluir letras minusculas,letras mayusculas, caracteres alfanumericos y simbolos.  Digite 2 si quieres solo incluir letras minusculas,letras mayusculas y caracteres alfanumericos. Digita 3 si quieres solo incluir letras minusculas y letras mayusculas. Y digita 4 si quieres que tu contraseña solo sea de letras minusculas"))
+ancho_clave = int(input("Ingresa cuantos caracteres quieres que tenga tu contraseña: "))
+print("Digita 1 si quieres incluir letras minusculas,letras mayusculas, caracteres alfanumericos y simbolos.")
+print("Digite 2 si quieres solo incluir letras minusculas,letras mayusculas y caracteres alfanumericos.")
+print("Digita 3 si quieres solo incluir letras minusculas y letras mayusculas.")
+print("Y digita 4 si quieres que tu contraseña solo sea de letras minusculas:")
+opcion_usuario = int(input())
 #Utilizará una función para generar la contraseña según las preferencias del usuario.
 def con_gen_usuario ():
   print(f"Recuerda que tu contraseña solo va a ser de {ancho_clave} caracteres como maximo y sabiendo eso:")
 if opcion_usuario == 1 : 
-    l_min_in = input("Ingresa las letras minusculas que quieres en tu contraseña.")
-    l_mayus_in = input("Ingresa las letras mayusculas quieres que tenga tu contraseña.")
-    n_nums_in = input("Ingresa los numeros quieres que tenga tu contraseña.")
-    n_sim_in = input("Ingresa los simbolos quieres que tenga tu contraseña.")
+     while True:
+      l_min_in1 = input("Ingrese una cadena de letras minúsculas: ")
+    # Verificar si todos los caracteres son letras minúsculas
+      if l_min_in1.isalpha() and l_min_in1.islower():
+        print("¡Entrada válida!")
+        break  # Salir del bucle si la entrada es correcta
+      else:
+        print("Error: La entrada debe contener solo letras minúsculas.")
+      while True:
+       l_mayus_in = input("Ingrese una cadena de letras mayusculas: ")
+    # Verificar si todos los caracteres son letras minúsculas
+       if l_min_in1.isalpha() and l_min_in1.isupper():
+        print("¡Entrada válida!")
+        break  # Salir del bucle si la entrada es correcta
+       else:
+        print("Error: La entrada debe contener solo letras mayusculas.")
+        
+     n_nums_in = input("Ingresa los numeros quieres que tenga tu contraseña.")
+     n_sim_in = input("Ingresa los simbolos quieres que tenga tu contraseña.")
     
-    c_l_min = len(l_min_in)
-    c_l_mayu = len(l_mayus_in)
-    c_num = len(n_nums_in)
-    c_sim = len(n_sim_in)
-    contraseña_generada = c_num + c_sim + c_l_min + c_l_mayu
+     c_l_min = len(l_min_in)
+     c_l_mayu = len(l_mayus_in)
+     c_num = len(n_nums_in)
+     c_sim = len(n_sim_in)
+     contraseña_generada = c_num + c_sim + c_l_min + c_l_mayu
     #Mostrará la contraseña generada y preguntará si el usuario desea generar otra contraseña.
 
-    if contraseña_generada > ancho_clave : print(f"Ingresa un numero menor a : {ancho_clave}.")
-    else: print(f"La contraseña es: {l_mayus_in+l_min_in+n_nums_in+n_sim_in}")
+if contraseña_generada > ancho_clave : print(f"Ingresa un numero menor a : {ancho_clave}.")
+else: print(f"La contraseña es: {l_mayus_in+l_min_in+n_nums_in+n_sim_in}")
 
 elif opcion_usuario == 2 : 
     l_min_in2 = input("Ingresa las letras minusculas que quieres en tu contraseña.")
@@ -65,4 +84,3 @@ else : print("La opcion ingresada no esta en las opciones anteriores.")
 opcion2 = input("Deseas salir: S para si y N para no")
 if opcion2 == "S" : print("Hasta luego, me diverti mucho contigo")
 else : print("Por ahora me despido mientras mejoran mi programa para darte mas opciones.")
-
